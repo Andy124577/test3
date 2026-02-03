@@ -401,6 +401,240 @@
             color: #4d0279;
             font-size: 0.8em;
         }
+
+        /* ---- MOBILE RESPONSIVE ---- */
+        @media (max-width: 768px) {
+            body {
+                height: auto;
+                min-height: 100vh;
+                overflow-y: auto;
+                padding: 8px;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .container {
+                height: auto;
+                gap: 8px;
+            }
+
+            h1 {
+                font-size: 1.1em;
+                margin-bottom: 2px;
+            }
+
+            /* Team section: stacked on mobile */
+            .team-section {
+                flex-wrap: wrap;
+                gap: 8px;
+                padding: 10px 12px;
+                justify-content: center;
+            }
+
+            .team-left {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .team-timer {
+                font-size: 2.2em;
+                width: 100%;
+                text-align: center;
+            }
+
+            .team-controls {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .team-controls button {
+                flex: 1;
+                padding: 10px 8px;
+                font-size: 0.85em;
+                min-height: 44px;
+            }
+
+            .team-adjust {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+                margin-left: 0;
+            }
+
+            .team-adjust input[type="number"] {
+                width: 55px;
+                padding: 8px;
+                font-size: 0.9em;
+                min-height: 40px;
+            }
+
+            .team-adjust .adjust-btn {
+                padding: 8px 14px;
+                font-size: 0.85em;
+                min-height: 40px;
+            }
+
+            /* Players section: scrollable on mobile */
+            .players-section {
+                flex: none;
+                min-height: 0;
+            }
+
+            .person-timers {
+                grid-template-columns: 1fr;
+                gap: 8px;
+                flex: none;
+            }
+
+            /* Each player card: horizontal compact layout */
+            .person-timer {
+                display: grid;
+                grid-template-columns: auto 1fr;
+                grid-template-rows: auto auto;
+                gap: 6px 10px;
+                padding: 10px 12px;
+                align-items: center;
+            }
+
+            .person-header {
+                grid-column: 1 / 2;
+                grid-row: 1 / 2;
+                gap: 6px;
+                flex-direction: column;
+                align-items: center;
+                min-width: 70px;
+            }
+
+            .person-icon {
+                width: 30px;
+                height: 30px;
+                font-size: 15px;
+            }
+
+            .person-name {
+                font-size: 0.75em;
+                text-align: center;
+            }
+
+            .person-timer .timer-display {
+                grid-column: 1 / 2;
+                grid-row: 2 / 3;
+                font-size: 1.8em;
+                text-align: center;
+            }
+
+            /* Right side: controls stacked */
+            .person-controls {
+                grid-column: 2 / 3;
+                grid-row: 1 / 2;
+                gap: 4px;
+            }
+
+            .person-controls button {
+                padding: 8px 6px;
+                font-size: 0.78em;
+                min-height: 38px;
+            }
+
+            .person-adjust-row {
+                grid-column: 2 / 3;
+                justify-content: flex-start;
+            }
+
+            .person-adjust-row:nth-of-type(1) {
+                grid-row: 2 / 3;
+            }
+
+            .person-adjust-row:nth-of-type(2) {
+                grid-row: 3 / 4;
+                grid-column: 2 / 3;
+            }
+
+            .person-adjust-row input[type="number"] {
+                width: 48px;
+                padding: 6px;
+                font-size: 0.82em;
+                min-height: 36px;
+            }
+
+            .person-adjust-row .adjust-btn {
+                padding: 6px 12px;
+                font-size: 0.78em;
+                min-height: 36px;
+            }
+
+            .person-adjust-row .adjust-label {
+                font-size: 0.75em;
+            }
+
+            .choice-section {
+                grid-column: 1 / 3;
+                padding-top: 6px;
+            }
+
+            .choice-buttons {
+                gap: 6px;
+            }
+
+            .choice-btn {
+                padding: 10px 8px;
+                font-size: 0.82em;
+                min-height: 42px;
+            }
+
+            /* Status badge */
+            .person-header .status {
+                font-size: 0.6em;
+                padding: 2px 6px;
+            }
+
+            /* Calculate section */
+            .calculate-section {
+                flex-direction: column;
+                gap: 6px;
+                padding: 10px;
+            }
+
+            .calculate-btn {
+                width: 100%;
+                padding: 14px 20px;
+                font-size: 1em;
+                min-height: 48px;
+            }
+
+            .result-text {
+                font-size: 0.78em;
+            }
+
+            /* General mobile touch targets */
+            button {
+                min-height: 36px;
+            }
+        }
+
+        /* Small phones (iPhone SE, etc.) */
+        @media (max-width: 380px) {
+            h1 {
+                font-size: 0.95em;
+            }
+
+            .team-timer {
+                font-size: 1.8em;
+            }
+
+            .person-timer .timer-display {
+                font-size: 1.5em;
+            }
+
+            .person-controls button {
+                font-size: 0.72em;
+                padding: 7px 4px;
+            }
+
+            .choice-btn {
+                font-size: 0.75em;
+                padding: 8px 6px;
+            }
+        }
     </style>
 </head>
 <body>
