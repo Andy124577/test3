@@ -4,7 +4,7 @@
             box-sizing: border-box;
         }
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Mokoto', sans-serif;
             background: linear-gradient(135deg, #251233);
             color: white;
             height: 100vh;
@@ -189,25 +189,26 @@
         }
         
         .person-card1 {
-            background: rgb(225, 255, 0);
-            backdrop-filter: blur(20px);
-            border-radius: 20px;
+            background-color: rgba(255, 255, 255, 0.15); /* Semi-transparent white background */
+            backdrop-filter: blur(10px); /* The magic ingredient for the frosted effect */
+            border-radius: 12px; /* Soft, rounded corners */
+            border: 5px solid rgb(190, 217, 78); /* Subtle border for definition */
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); /* Soft shadow for depth */
+
             padding: 30px 20px;
             text-align: center;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
             transition: all 0.4s ease;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            border: 2px solid rgba(255, 255, 255, 0.15);
             position: relative;
             overflow: hidden;
             height: 100%;
         }
 
         .person-card2 {
-            background: rgb(255, 0, 0);
+            background-color: rgba(255, 255, 255, 0.15); /* Semi-transparent white background */
             backdrop-filter: blur(20px);
             border-radius: 20px;
             padding: 30px 20px;
@@ -218,14 +219,14 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            border: 2px solid rgba(255, 255, 255, 0.15);
+            border: 5px solid rgba(234, 127, 128);
             position: relative;
             overflow: hidden;
             height: 100%;
         }
 
         .person-card3 {
-            background: rgb(25, 0, 255);
+            background-color: rgba(255, 255, 255, 0.15); 
             backdrop-filter: blur(20px);
             border-radius: 20px;
             padding: 30px 20px;
@@ -236,14 +237,14 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            border: 2px solid rgba(255, 255, 255, 0.15);
+            border: 5px solid rgba(240, 238, 102);
             position: relative;
             overflow: hidden;
             height: 100%;
         }
 
         .person-card4 {
-            background: rgb(255, 0, 247);
+            background-color: rgba(255, 255, 255, 0.15); 
             backdrop-filter: blur(20px);
             border-radius: 20px;
             padding: 30px 20px;
@@ -254,14 +255,14 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            border: 2px solid rgba(255, 255, 255, 0.15);
+            border: 5px solid rgba(233, 73, 198);
             position: relative;
             overflow: hidden;
             height: 100%;
         }
 
         .person-card5 {
-            background: rgb(34, 255, 0);
+            background-color: rgba(255, 255, 255, 0.15); 
             backdrop-filter: blur(20px);
             border-radius: 20px;
             padding: 30px 20px;
@@ -272,7 +273,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            border: 2px solid rgba(255, 255, 255, 0.15);
+            border: 5px solid rgba(153, 163, 214);
             position: relative;
             overflow: hidden;
             height: 100%;
@@ -339,17 +340,14 @@
         
         .person-icon {
             color: red;
-            background-image: url('../casque.svg');
+            
             width: 70px;
             height: 70px;
-            background: linear-gradient(135deg, #ff2e7e 0%, #ffb77f 100%);
-            border-radius: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 36px;
             margin: 0 auto 20px;
-            box-shadow: 0 8px 20px rgba(255, 46, 126, 0.4);
             position: relative;
             z-index: 1;
         }
