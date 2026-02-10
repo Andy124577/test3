@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contrôle des Chronomètres</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="control.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="control.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>⏱️ Contrôle des Chronomètres</h1>
+
+        <!-- TEAM SECTION: single compact row -->
+        <div class="team-section">
+            <div class="team-left">
+                <span class="team-title">🏆 Équipe</span>
+                <span class="status stopped" id="team-status">Arrêté</span>
+            </div>
+            <div class="team-timer" id="team-display">25:00</div>
+            <div class="team-controls">
+                <button class="start-btn" onclick="startTimer('team')">Démarrer</button>
+                <button class="pause-btn" onclick="pauseTimer('team')">Pause</button>
+                <button class="reset-btn" onclick="resetTimer('team')">Reset</button>
+            </div>
+            <div class="team-adjust">
+                <span class="adjust-label">Sec:</span>
+                <input type="number" id="team-adjust-sec" placeholder="Sec" min="1">
+                <button class="adjust-btn" onclick="adjustTimer('team', 'add', 'sec')">+</button>
+                <button class="adjust-btn" onclick="adjustTimer('team', 'subtract', 'sec')">-</button>
+                <span class="adjust-label" style="margin-left:4px;">Min:</span>
+                <input type="number" id="team-adjust-min" placeholder="Min" min="1">
+                <button class="adjust-btn" onclick="adjustTimer('team', 'add', 'min')">+</button>
+                <button class="adjust-btn" onclick="adjustTimer('team', 'subtract', 'min')">-</button>
+            </div>
+        </div>
+
+        <!-- PLAYERS SECTION -->
+        <div class="players-section">
+            <div class="players-header">
+                <span class="players-title">👥 Chronos Individuels</span>
+            </div>
+            <div class="person-timers">
+                <!-- Player 1 -->
+                <div class="person-timer">
+                    <div class="person-header">
+                        <div class="person-icon">👤</div>
+                        <div class="person-name">Joueur 1</div>
+                        <span class="status stopped" id="person1-status">Arrêté</span>
+                    </div>
+                    <div class="timer-display" id="person1-display">5:00</div>
+                    <div class="person-controls">
+                        <button class="start-btn" onclick="startTimer('person1')">Start</button>
+                        <button class="pause-btn" onclick="pauseTimer('person1')">Pause</button>
+                        <button class="reset-btn" onclick="resetTimer('person1')">Reset</button>
+                    </div>
+                    <div class="person-adjust-row">
+                        <span class="adjust-label">S:</span>
+                        <input type="number" id="person1-adjust-sec" placeholder="S" min="1">
+                        <button class="adjust-btn" onclick="adjustTimer('person1', 'add', 'sec')">+</button>
+                        <button class="adjust-btn" onclick="adjustTimer('person1', 'subtract', 'sec')">-</button>
+                    </div>
+                    <div class="person-adjust-row">
+                        <span class="adjust-label">M:</span>
+                        <input type="number" id="person1-adjust-min" placeholder="M" min="1">
+                        <button class="adjust-btn" onclick="adjustTimer('person1', 'add', 'min')">+</button>
+                        <button class="adjust-btn" onclick="adjustTimer('person1', 'subtract', 'min')">-</button>
+                    </div>
+                    <div class="choice-section">
+                        <div class="choice-buttons">
+                            <button class="choice-btn cheat-btn" onclick="selectChoice('person1', 'cheat')">Tricheur</button>
+                            <button class="choice-btn win-btn" onclick="selectChoice('person1', 'win')">Gagnant</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Player 2 -->
+                <div class="person-timer">
+                    <div class="person-header">
+                        <div class="person-icon">👤</div>
+                        <div class="person-name">Joueur 2</div>
+                        <span class="status stopped" id="person2-status">Arrêté</span>
+                    </div>
+                    <div class="timer-display" id="person2-display">5:00</div>
+                    <div class="person-controls">
+                        <button class="start-btn" onclick="startTimer('person2')">Start</button>
+                        <button class="pause-btn" onclick="pauseTimer('person2')">Pause</button>
+                        <button class="reset-btn" onclick="resetTimer('person2')">Reset</button>
+                    </div>
+                    <div class="person-adjust-row">
+                        <span class="adjust-label">S:</span>
+                        <input type="number" id="person2-adjust-sec" placeholder="S" min="1">
+                        <button class="adjust-btn" onclick="adjustTimer('person2', 'add', 'sec')">+</button>
+                        <button class="adjust-btn" onclick="adjustTimer('person2', 'subtract', 'sec')">-</button>
+                    </div>
+                    <div class="person-adjust-row">
+                        <span class="adjust-label">M:</span>
+                        <input type="number" id="person2-adjust-min" placeholder="M" min="1">
+                        <button class="adjust-btn" onclick="adjustTimer('person2', 'add', 'min')">+</button>
+                        <button class="adjust-btn" onclick="adjustTimer('person2', 'subtract', 'min')">-</button>
+                    </div>
+                    <div class="choice-section">
+                        <div class="choice-buttons">
+                            <button class="choice-btn cheat-btn" onclick="selectChoice('person2', 'cheat')">Tricheur</button>
+                            <button class="choice-btn win-btn" onclick="selectChoice('person2', 'win')">Gagnant</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Player 3 -->
+                <div class="person-timer">
+                    <div class="person-header">
+                        <div class="person-icon">👤</div>
+                        <div class="person-name">Joueur 3</div>
+                        <span class="status stopped" id="person3-status">Arrêté</span>
+                    </div>
+                    <div class="timer-display" id="person3-display">5:00</div>
+                    <div class="person-controls">
+                        <button class="start-btn" onclick="startTimer('person3')">Start</button>
+                        <button class="pause-btn" onclick="pauseTimer('person3')">Pause</button>
+                        <button class="reset-btn" onclick="resetTimer('person3')">Reset</button>
+                    </div>
+                    <div class="person-adjust-row">
+                        <span class="adjust-label">S:</span>
+                        <input type="number" id="person3-adjust-sec" placeholder="S" min="1">
+                        <button class="adjust-btn" onclick="adjustTimer('person3', 'add', 'sec')">+</button>
+                        <button class="adjust-btn" onclick="adjustTimer('person3', 'subtract', 'sec')">-</button>
+                    </div>
+                    <div class="person-adjust-row">
+                        <span class="adjust-label">M:</span>
+                        <input type="number" id="person3-adjust-min" placeholder="M" min="1">
+                        <button class="adjust-btn" onclick="adjustTimer('person3', 'add', 'min')">+</button>
+                        <button class="adjust-btn" onclick="adjustTimer('person3', 'subtract', 'min')">-</button>
+                    </div>
+                    <div class="choice-section">
+                        <div class="choice-buttons">
+                            <button class="choice-btn cheat-btn" onclick="selectChoice('person3', 'cheat')">Tricheur</button>
+                            <button class="choice-btn win-btn" onclick="selectChoice('person3', 'win')">Gagnant</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Player 4 -->
+                <div class="person-timer">
+                    <div class="person-header">
+                        <div class="person-icon">👤</div>
+                        <div class="person-name">Joueur 4</div>
+                        <span class="status stopped" id="person4-status">Arrêté</span>
+                    </div>
+                    <div class="timer-display" id="person4-display">5:00</div>
+                    <div class="person-controls">
+                        <button class="start-btn" onclick="startTimer('person4')">Start</button>
+                        <button class="pause-btn" onclick="pauseTimer('person4')">Pause</button>
+                        <button class="reset-btn" onclick="resetTimer('person4')">Reset</button>
+                    </div>
+                    <div class="person-adjust-row">
+                        <span class="adjust-label">S:</span>
+                        <input type="number" id="person4-adjust-sec" placeholder="S" min="1">
+                        <button class="adjust-btn" onclick="adjustTimer('person4', 'add', 'sec')">+</button>
+                        <button class="adjust-btn" onclick="adjustTimer('person4', 'subtract', 'sec')">-</button>
+                    </div>
+                    <div class="person-adjust-row">
+                        <span class="adjust-label">M:</span>
+                        <input type="number" id="person4-adjust-min" placeholder="M" min="1">
+                        <button class="adjust-btn" onclick="adjustTimer('person4', 'add', 'min')">+</button>
+                        <button class="adjust-btn" onclick="adjustTimer('person4', 'subtract', 'min')">-</button>
+                    </div>
+                    <div class="choice-section">
+                        <div class="choice-buttons">
+                            <button class="choice-btn cheat-btn" onclick="selectChoice('person4', 'cheat')">Tricheur</button>
+                            <button class="choice-btn win-btn" onclick="selectChoice('person4', 'win')">Gagnant</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Player 5 -->
+                <div class="person-timer">
+                    <div class="person-header">
+                        <div class="person-icon">👤</div>
+                        <div class="person-name">Joueur 5</div>
+                        <span class="status stopped" id="person5-status">Arrêté</span>
+                    </div>
+                    <div class="timer-display" id="person5-display">5:00</div>
+                    <div class="person-controls">
+                        <button class="start-btn" onclick="startTimer('person5')">Start</button>
+                        <button class="pause-btn" onclick="pauseTimer('person5')">Pause</button>
+                        <button class="reset-btn" onclick="resetTimer('person5')">Reset</button>
+                    </div>
+                    <div class="person-adjust-row">
+                        <span class="adjust-label">S:</span>
+                        <input type="number" id="person5-adjust-sec" placeholder="S" min="1">
+                        <button class="adjust-btn" onclick="adjustTimer('person5', 'add', 'sec')">+</button>
+                        <button class="adjust-btn" onclick="adjustTimer('person5', 'subtract', 'sec')">-</button>
+                    </div>
+                    <div class="person-adjust-row">
+                        <span class="adjust-label">M:</span>
+                        <input type="number" id="person5-adjust-min" placeholder="M" min="1">
+                        <button class="adjust-btn" onclick="adjustTimer('person5', 'add', 'min')">+</button>
+                        <button class="adjust-btn" onclick="adjustTimer('person5', 'subtract', 'min')">-</button>
+                    </div>
+                    <div class="choice-section">
+                        <div class="choice-buttons">
+                            <button class="choice-btn cheat-btn" onclick="selectChoice('person5', 'cheat')">Tricheur</button>
+                            <button class="choice-btn win-btn" onclick="selectChoice('person5', 'win')">Gagnant</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="calculate-section">
+                <button class="calculate-btn" onclick="calculateResults()">🎲 Calculer les Résultats</button>
+                <div class="result-text" id="result-text"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
