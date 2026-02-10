@@ -192,7 +192,7 @@
             background-color: rgba(255, 255, 255, 0.15); /* Semi-transparent white background */
             backdrop-filter: blur(10px); /* The magic ingredient for the frosted effect */
             border-radius: 12px; /* Soft, rounded corners */
-            border: 5px solid rgb(190, 217, 78); /* Subtle border for definition */
+            border: 5px solid rgb(4, 181, 100); /* Subtle border for definition */
             box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); /* Soft shadow for depth */
 
             padding: 30px 20px;
