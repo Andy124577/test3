@@ -218,7 +218,72 @@
             }
         }
 
+        // ---- GLITCH EFFECT ----
+        function triggerGlitch(element, intense = false) {
+            if (!element) return;
+
+            // Set data-text attribute for pseudo-element content
+            element.setAttribute('data-text', element.textContent);
+
+            // Add glitch class
+            element.classList.add('glitch');
+            if (intense) {
+                element.classList.add('glitch-intense');
+            }
+
+            // Remove glitch class after animation completes
+            setTimeout(() => {
+                element.classList.remove('glitch', 'glitch-intense');
+            }, intense ? 500 : 300);
+        }
+
+        function randomGlitch() {
+            // Elements that can glitch
+            const glitchTargets = [
+                document.getElementById('team-time'),
+                document.querySelector('.team-title'),
+                ...document.querySelectorAll('.person-time'),
+                ...document.querySelectorAll('.person-name')
+            ].filter(el => el !== null);
+
+            if (glitchTargets.length === 0) return;
+
+            // Pick 1-3 random elements to glitch
+            const numGlitches = Math.floor(Math.random() * 3) + 1;
+
+            for (let i = 0; i < numGlitches; i++) {
+                const randomIndex = Math.floor(Math.random() * glitchTargets.length);
+                const target = glitchTargets[randomIndex];
+
+                // 20% chance for intense glitch
+                const isIntense = Math.random() < 0.2;
+
+                // Stagger the glitches slightly
+                setTimeout(() => {
+                    triggerGlitch(target, isIntense);
+                }, i * 100);
+            }
+        }
+
+        function startGlitchLoop() {
+            // Random interval between 3-8 seconds
+            const scheduleNextGlitch = () => {
+                const delay = 3000 + Math.random() * 5000;
+                setTimeout(() => {
+                    randomGlitch();
+                    scheduleNextGlitch();
+                }, delay);
+            };
+
+            // Start the loop after initial delay
+            setTimeout(scheduleNextGlitch, 2000);
+        }
+
         // Poll l'API toutes les 500ms
         console.log('🚀 Starting timer display...');
         setInterval(fetchTimers, 500);
         fetchTimers();
+
+        // Start the glitch effect loop
+        startGlitchLoop();
+        console.log('✨ Glitch effect enabled');
