@@ -188,6 +188,7 @@
             const inputId = timerId === 'team' ? `team-adjust-${unit}` : `${timerId}-adjust-${unit}`;
             const input = document.getElementById(inputId);
             const value = parseInt(input.value) || 0;
+ 
 
             if (value <= 0) return;
 
