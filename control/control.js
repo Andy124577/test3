@@ -59,8 +59,15 @@
                 data.chronos.forEach(chrono => {
                     const localKey = Object.keys(timerIds).find(key => timerIds[key] === chrono.id);
                     if (localKey && timers[localKey]) {
-                        timers[localKey].time = Math.max(0, Math.floor(chrono.value / 1000));
-                        timers[localKey].running = chrono.status === 'running';
+                        const wasRunning = timers[localKey].running;
+                        const isRunning = chrono.status === 'running';
+
+                        // Only update time from API if timer is NOT running
+                        // (to avoid overwriting local countdown)
+                        if (!isRunning) {
+                            timers[localKey].time = Math.max(0, Math.floor(chrono.value / 1000));
+                        }
+                        timers[localKey].running = isRunning;
                     }
                 });
 
