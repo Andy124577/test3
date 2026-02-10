@@ -28,6 +28,41 @@
             person5: null
         };
 
+        // 1. Store interval IDs for each timer
+            const countdownIntervals = {};
+
+            // 2. When a timer is "running", start a local 1-second decrement
+            function startLocalCountdown(timerId) {
+                // Don't duplicate intervals
+                if (countdownIntervals[timerId]) return;
+                
+                countdownIntervals[timerId] = setInterval(() => {
+                    if (timers[timerId].running && timers[timerId].time > 0) {
+                        timers[timerId].time--;
+                        updateDisplay(timerId);
+                    }
+                }, 1000);
+            }
+
+            // 3. When a timer stops, clear the local countdown
+            function stopLocalCountdown(timerId) {
+                if (countdownIntervals[timerId]) {
+                    clearInterval(countdownIntervals[timerId]);
+                    delete countdownIntervals[timerId];
+                }
+            }
+
+            // 4. In fetchTimers(), after updating from API, sync the countdowns:
+            Object.keys(timers).forEach(key => {
+                if (timers[key].running) {
+                    startLocalCountdown(key);
+                } else {
+                    stopLocalCountdown(key);
+                }
+                updateDisplay(key);
+            });
+
+
         async function fetchTimers() {
             try {
                 const response = await fetch(API_BASE);
