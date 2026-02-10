@@ -77,9 +77,11 @@
                         const wasRunning = timers[localKey].running;
                         const isRunning = chrono.status === 'running';
 
-                        // Only update time from API if timer is NOT running
-                        // (to avoid overwriting local countdown)
-                        if (!isRunning) {
+                        // Update time from API when:
+                        // - Timer is stopped (sync final value)
+                        // - Timer just started (get initial value)
+                        // Don't update when timer is STILL running (let local countdown handle it)
+                        if (!isRunning || !wasRunning) {
                             timers[localKey].time = Math.max(0, Math.floor(chrono.value / 1000));
                         }
                         timers[localKey].running = isRunning;
