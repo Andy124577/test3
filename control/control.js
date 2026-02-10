@@ -28,28 +28,6 @@
             person5: null
         };
 
-        // Local countdown intervals for visual feedback
-        const countdownIntervals = {};
-
-        function startLocalCountdown(timerId) {
-            // Don't create duplicate intervals
-            if (countdownIntervals[timerId]) return;
-
-            countdownIntervals[timerId] = setInterval(() => {
-                if (timers[timerId].running && timers[timerId].time > 0) {
-                    timers[timerId].time--;
-                    updateDisplay(timerId);
-                }
-            }, 1000);
-        }
-
-        function stopLocalCountdown(timerId) {
-            if (countdownIntervals[timerId]) {
-                clearInterval(countdownIntervals[timerId]);
-                delete countdownIntervals[timerId];
-            }
-        }
-
         async function fetchTimers() {
             try {
                 const response = await fetch(API_BASE);
@@ -66,15 +44,9 @@
                     }
                 });
 
-                // Mettre à jour l'affichage et gérer les countdowns locaux
+                // Mettre à jour l'affichage
                 Object.keys(timers).forEach(key => {
                     updateDisplay(key);
-                    // Start/stop local countdown based on running status
-                    if (timers[key].running) {
-                        startLocalCountdown(key);
-                    } else {
-                        stopLocalCountdown(key);
-                    }
                 });
             } catch (error) {
                 console.error('❌ Error fetching timers:', error);
